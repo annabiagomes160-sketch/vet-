@@ -15,6 +15,7 @@ body {
     background: #f7f7fb;
     color: #29243d;
     display: flex;
+    transition: 0.3s;
 }
 
 
@@ -38,7 +39,7 @@ aside h1 {
 }
 
 
-/* LINKS DO MENU */
+/* LINKS */
 
 nav {
     display: flex;
@@ -60,7 +61,21 @@ nav a:hover {
 }
 
 
-/* CONTEÚDO PRINCIPAL */
+/* MODO ESCURO */
+
+.tema {
+    margin-top: 30px;
+    width: 100%;
+    background: #7047eb;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+/* CONTEÚDO */
 
 main {
     margin-left: 230px;
@@ -97,7 +112,8 @@ header p {
 
 /* BOTÕES */
 
-.botao {
+.botao,
+button {
     display: inline-block;
 
     background: #7047eb;
@@ -109,48 +125,27 @@ header p {
 
     border-radius: 10px;
 
-    margin-top: 15px;
+    border: none;
+
+    cursor: pointer;
 
     transition: 0.3s;
 }
 
-.botao:hover {
+.botao:hover,
+button:hover {
     background: #5933c9;
     transform: translateY(-2px);
 }
 
 
-/* BOTÃO DO FORMULÁRIO */
-
-button {
-    border: none;
-
-    background: #7047eb;
-    color: white;
-
-    padding: 12px 20px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    font-size: 15px;
-
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #5933c9;
-}
-
-
-/* BANNER PRINCIPAL */
+/* BANNER */
 
 .banner {
     background: linear-gradient(
         120deg,
-        #4db8c9,
-        #7047eb
+        #9635f0,
+        #e784eb
     );
 
     color: white;
@@ -183,10 +178,7 @@ button:hover {
 .banner .botao {
     background: white;
     color: #7047eb;
-}
-
-.banner .botao:hover {
-    background: #f0ebff;
+    margin-top: 15px;
 }
 
 .emoji {
@@ -252,7 +244,7 @@ section > h2 {
 }
 
 
-/* LISTA DE CUIDADOS */
+/* LISTA */
 
 .lista {
     background: white;
@@ -272,6 +264,54 @@ section > h2 {
 
 .lista p:last-child {
     border-bottom: none;
+}
+
+
+/* CAIXAS E FORMULÁRIOS */
+
+form,
+.caixa {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 3px 15px #e2dff0;
+
+    max-width: 650px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-family: Arial;
+
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #7047eb;
+
+    box-shadow: 0 0 5px #ddd0ff;
+}
+
+textarea {
+    height: 120px;
+
+    resize: none;
 }
 
 
@@ -296,13 +336,13 @@ section > h2 {
 .curiosidade p {
     line-height: 1.6;
 
-    color: #555;
+    margin-bottom: 15px;
 }
 
 
-/* FORMULÁRIO */
+/* QUIZ */
 
-form {
+.quiz {
     background: white;
 
     padding: 25px;
@@ -311,37 +351,31 @@ form {
 
     box-shadow: 0 3px 15px #e2dff0;
 
-    max-width: 600px;
+    max-width: 650px;
 }
 
-input,
-textarea {
-    width: 100%;
-
-    padding: 13px;
-
-    margin-bottom: 15px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 8px;
-
-    font-family: Arial;
-
-    outline: none;
+.quiz button {
+    margin: 5px;
 }
 
-input:focus,
-textarea:focus {
-    border-color: #7047eb;
+#resultadoQuiz {
+    margin-top: 20px;
 
-    box-shadow: 0 0 5px #ddd0ff;
+    font-weight: bold;
 }
 
-textarea {
-    height: 120px;
 
-    resize: none;
+/* RESULTADOS */
+
+#petResultado,
+#resultadoAgendamento,
+#resultadoIdade,
+#mensagemEnviada {
+    margin-top: 15px;
+
+    color: #7047eb;
+
+    font-weight: bold;
 }
 
 
@@ -370,7 +404,59 @@ footer p:first-child {
 }
 
 
-/* RESPONSIVIDADE PARA CELULAR */
+/* =========================
+   MODO ESCURO
+========================= */
+
+body.escuro {
+    background: #181522;
+
+    color: white;
+}
+
+body.escuro aside,
+body.escuro header,
+body.escuro .card,
+body.escuro .lista,
+body.escuro form,
+body.escuro .caixa,
+body.escuro .quiz,
+body.escuro footer {
+    background: #252033;
+
+    color: white;
+}
+
+body.escuro nav a {
+    color: #ddd;
+}
+
+body.escuro nav a:hover {
+    background: #352d49;
+
+    color: #a88cff;
+}
+
+body.escuro .card p,
+body.escuro header p,
+body.escuro footer {
+    color: #ccc;
+}
+
+body.escuro input,
+body.escuro select,
+body.escuro textarea {
+    background: #302a40;
+
+    color: white;
+
+    border-color: #555;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
 
 @media (max-width: 800px) {
 
@@ -445,4 +531,86 @@ footer p:first-child {
 
         gap: 15px;
     }
+
+    .quiz button {
+        width: 100%;
+
+        margin: 5px 0;
+    }
+}
+/* LEMBRETES */
+
+.lembrete-container {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px #e2dff0;
+    max-width: 700px;
+}
+
+.lembrete-container h3 {
+    color: #7047eb;
+    margin-bottom: 20px;
+}
+
+#formLembrete {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: none;
+    padding: 0;
+    max-width: 100%;
+}
+
+#formLembrete input,
+#formLembrete select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial;
+    outline: none;
+    background: white;
+}
+
+#formLembrete input:focus,
+#formLembrete select:focus {
+    border-color: #7047eb;
+}
+
+.titulo-lembretes {
+    margin-top: 30px;
+}
+
+.lembrete {
+    background: #f3efff;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border-left: 5px solid #7047eb;
+}
+
+.lembrete h4 {
+    color: #7047eb;
+    margin-bottom: 8px;
+}
+
+.lembrete p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.btn-excluir {
+    background: #e74c3c;
+    padding: 8px 12px;
+    margin-top: 10px;
+}
+
+.btn-excluir:hover {
+    background: #c0392b;
+}
+
+.sem-lembretes {
+    color: #888;
+    padding: 15px 0;
 }

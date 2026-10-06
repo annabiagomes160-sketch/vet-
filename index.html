@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Medicina Veterinária</title>
+    <title>VetCare - Medicina Veterinária</title>
 
     <style>
+
+        /* =========================
+           RESET
+        ========================= */
 
         * {
             margin: 0;
@@ -24,9 +27,12 @@
             background: #f7f7fb;
             color: #29243d;
             display: flex;
+            transition: 0.3s;
         }
 
-        /* MENU */
+        /* =========================
+           MENU
+        ========================= */
 
         aside {
             width: 230px;
@@ -34,12 +40,15 @@
             background: white;
             padding: 30px 20px;
             position: fixed;
+            left: 0;
+            top: 0;
             border-right: 1px solid #e8e2f5;
         }
 
         aside h1 {
             color: #7047eb;
             margin-bottom: 40px;
+            font-size: 25px;
         }
 
         nav {
@@ -53,6 +62,7 @@
             color: #555;
             padding: 13px;
             border-radius: 10px;
+            transition: 0.3s;
         }
 
         nav a:hover {
@@ -60,7 +70,22 @@
             color: #7047eb;
         }
 
-        /* CONTEÚDO */
+        /* BOTÃO MODO ESCURO */
+
+        .tema {
+            margin-top: 30px;
+            width: 100%;
+            background: #7047eb;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
 
         main {
             margin-left: 230px;
@@ -68,7 +93,9 @@
             padding: 25px 40px;
         }
 
-        /* CABEÇALHO */
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             background: white;
@@ -90,23 +117,32 @@
             margin-top: 5px;
         }
 
-        /* BOTÕES */
+        /* =========================
+           BOTÕES
+        ========================= */
 
-        .botao {
+        .botao,
+        button {
             display: inline-block;
             background: #7047eb;
             color: white;
             text-decoration: none;
             padding: 12px 20px;
             border-radius: 10px;
-            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .botao:hover {
+        .botao:hover,
+        button:hover {
             background: #5933c9;
+            transform: translateY(-2px);
         }
 
-        /* BANNER */
+        /* =========================
+           BANNER
+        ========================= */
 
         .banner {
             background: linear-gradient(120deg, #4db8c9, #7047eb);
@@ -130,11 +166,19 @@
             line-height: 1.6;
         }
 
+        .banner .botao {
+            background: white;
+            color: #7047eb;
+            margin-top: 15px;
+        }
+
         .emoji {
             font-size: 130px;
         }
 
-        /* SEÇÕES */
+        /* =========================
+           SEÇÕES
+        ========================= */
 
         section {
             margin-bottom: 50px;
@@ -146,7 +190,9 @@
             font-size: 25px;
         }
 
-        /* CARDS */
+        /* =========================
+           CARDS
+        ========================= */
 
         .cards {
             display: grid;
@@ -180,7 +226,45 @@
             line-height: 1.5;
         }
 
-        /* LISTA */
+        /* =========================
+           FORMULÁRIOS
+        ========================= */
+
+        form,
+        .caixa {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px #e2dff0;
+            max-width: 650px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: Arial;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #7047eb;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        /* =========================
+           LISTA
+        ========================= */
 
         .lista {
             background: white;
@@ -194,12 +278,15 @@
             border-bottom: 1px solid #eee;
         }
 
-        /* CURIOSIDADE */
+        /* =========================
+           CURIOSIDADE
+        ========================= */
 
         .curiosidade {
             background: #eee8ff;
             padding: 25px;
             border-radius: 15px;
+            border-left: 5px solid #7047eb;
         }
 
         .curiosidade h3 {
@@ -209,34 +296,33 @@
 
         .curiosidade p {
             line-height: 1.6;
+            margin-bottom: 15px;
         }
 
-        /* CONTATO */
+        /* =========================
+           QUIZ
+        ========================= */
 
-        form {
+        .quiz {
             background: white;
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 3px 15px #e2dff0;
-            max-width: 600px;
+            max-width: 650px;
         }
 
-        input,
-        textarea {
-            width: 100%;
-            padding: 13px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: Arial;
+        .quiz button {
+            margin: 5px;
         }
 
-        textarea {
-            height: 120px;
-            resize: none;
+        #resultadoQuiz {
+            margin-top: 20px;
+            font-weight: bold;
         }
 
-        /* RODAPÉ */
+        /* =========================
+           RODAPÉ
+        ========================= */
 
         footer {
             background: white;
@@ -244,11 +330,63 @@
             text-align: center;
             border-radius: 15px;
             color: #777;
+            box-shadow: 0 3px 15px #e2dff0;
         }
 
-        /* CELULAR */
+        footer p:first-child {
+            color: #7047eb;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* =========================
+           MODO ESCURO
+        ========================= */
+
+        body.escuro {
+            background: #181522;
+            color: white;
+        }
+
+        body.escuro aside,
+        body.escuro header,
+        body.escuro .card,
+        body.escuro .lista,
+        body.escuro form,
+        body.escuro .caixa,
+        body.escuro .quiz,
+        body.escuro footer {
+            background: #252033;
+            color: white;
+        }
+
+        body.escuro nav a {
+            color: #ddd;
+        }
+
+        body.escuro .card p,
+        body.escuro header p,
+        body.escuro footer {
+            color: #ccc;
+        }
+
+        body.escuro input,
+        body.escuro select,
+        body.escuro textarea {
+            background: #302a40;
+            color: white;
+            border-color: #555;
+        }
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
 
         @media (max-width: 800px) {
+
+            body {
+                display: block;
+            }
 
             aside {
                 width: 100%;
@@ -256,19 +394,20 @@
                 position: relative;
             }
 
-            body {
-                display: block;
+            aside h1 {
+                text-align: center;
+            }
+
+            nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             main {
                 margin-left: 0;
                 width: 100%;
                 padding: 20px;
-            }
-
-            nav {
-                flex-direction: row;
-                flex-wrap: wrap;
             }
 
             .cards {
@@ -279,26 +418,32 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 20px;
+                padding: 30px;
             }
 
             .banner h2 {
                 font-size: 28px;
             }
 
+            .emoji {
+                font-size: 90px;
+            }
+
             header {
                 flex-direction: column;
-                gap: 15px;
                 text-align: center;
+                gap: 15px;
             }
         }
 
     </style>
-
 </head>
 
 <body>
 
-    <!-- MENU LATERAL -->
+    <!-- =========================
+         MENU
+    ========================= -->
 
     <aside>
 
@@ -309,18 +454,26 @@
             <a href="#sobre">📚 Sobre</a>
             <a href="#areas">🩺 Áreas</a>
             <a href="#cuidados">❤️ Cuidados</a>
+            <a href="#pet">🐶 Meu Pet</a>
+            <a href="#agendamento">📅 Agendamento</a>
+            <a href="#calculadora">🧮 Idade</a>
+            <a href="#quiz">🧠 Quiz</a>
             <a href="#curiosidades">💡 Curiosidades</a>
             <a href="#contato">📞 Contato</a>
         </nav>
 
+        <button class="tema" onclick="mudarTema()">
+            🌙 Modo escuro
+        </button>
+
     </aside>
 
 
-    <!-- CONTEÚDO -->
+    <!-- =========================
+         CONTEÚDO
+    ========================= -->
 
     <main>
-
-        <!-- TOPO -->
 
         <header>
 
@@ -329,8 +482,8 @@
                 <p>Cuidados, saúde e bem-estar dos animais.</p>
             </div>
 
-            <a href="#contato" class="botao">
-                🐾 Saiba mais
+            <a href="#agendamento" class="botao">
+                🐾 Agendar consulta
             </a>
 
         </header>
@@ -375,44 +528,30 @@
             <div class="cards">
 
                 <div class="card">
-
                     <span>🩺</span>
-
                     <h3>Saúde</h3>
-
                     <p>
                         Cuidados para prevenir e tratar
                         doenças nos animais.
                     </p>
-
                 </div>
 
-
                 <div class="card">
-
                     <span>💉</span>
-
                     <h3>Prevenção</h3>
-
                     <p>
-                        Vacinação e acompanhamento
-                        ajudam a manter os animais saudáveis.
+                        Vacinação e acompanhamento ajudam
+                        a manter os animais saudáveis.
                     </p>
-
                 </div>
 
-
                 <div class="card">
-
                     <span>❤️</span>
-
                     <h3>Bem-estar</h3>
-
                     <p>
                         Promove uma vida saudável,
                         segura e feliz para os animais.
                     </p>
-
                 </div>
 
             </div>
@@ -429,58 +568,39 @@
             <div class="cards">
 
                 <div class="card">
-
                     <span>🐶</span>
-
                     <h3>Pequenos animais</h3>
-
                     <p>
                         Cuidados com cães, gatos e
                         outros animais domésticos.
                     </p>
-
                 </div>
 
-
                 <div class="card">
-
                     <span>🐴</span>
-
                     <h3>Grandes animais</h3>
-
                     <p>
                         Cuidados com cavalos,
                         bovinos e outros animais.
                     </p>
-
                 </div>
 
-
                 <div class="card">
-
                     <span>🦜</span>
-
                     <h3>Animais silvestres</h3>
-
                     <p>
                         Atendimento e cuidados
                         com diferentes espécies.
                     </p>
-
                 </div>
 
-
                 <div class="card">
-
                     <span>🔬</span>
-
                     <h3>Laboratório</h3>
-
                     <p>
                         Exames, pesquisas e
                         diagnósticos.
                     </p>
-
                 </div>
 
             </div>
@@ -497,16 +617,160 @@
             <div class="lista">
 
                 <p>🍎 Alimentação adequada</p>
-
                 <p>💉 Vacinação em dia</p>
-
                 <p>🏃 Exercícios físicos</p>
-
                 <p>🩺 Consultas veterinárias</p>
-
                 <p>🧼 Higiene e limpeza</p>
-
                 <p>💧 Água limpa e fresca</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CADASTRO DO PET -->
+
+        <section id="pet">
+
+            <h2>🐶 Cadastro do meu Pet</h2>
+
+            <div class="caixa">
+
+                <input
+                    type="text"
+                    id="nomePet"
+                    placeholder="Nome do pet"
+                >
+
+                <select id="tipoPet">
+                    <option value="">Escolha o animal</option>
+                    <option>Cachorro</option>
+                    <option>Gato</option>
+                    <option>Ave</option>
+                    <option>Coelho</option>
+                    <option>Outro</option>
+                </select>
+
+                <input
+                    type="number"
+                    id="idadePet"
+                    placeholder="Idade do pet"
+                >
+
+                <button onclick="cadastrarPet()">
+                    Cadastrar pet
+                </button>
+
+                <p id="petResultado"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- AGENDAMENTO -->
+
+        <section id="agendamento">
+
+            <h2>📅 Agendamento de consulta</h2>
+
+            <form onsubmit="agendar(event)">
+
+                <input
+                    type="text"
+                    id="nomeDono"
+                    placeholder="Nome do responsável"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="nomeAnimal"
+                    placeholder="Nome do animal"
+                    required
+                >
+
+                <input
+                    type="date"
+                    id="dataConsulta"
+                    required
+                >
+
+                <input
+                    type="time"
+                    id="horaConsulta"
+                    required
+                >
+
+                <button type="submit">
+                    Agendar consulta
+                </button>
+
+                <p id="resultadoAgendamento"></p>
+
+            </form>
+
+        </section>
+
+
+        <!-- CALCULADORA -->
+
+        <section id="calculadora">
+
+            <h2>🧮 Calculadora de idade</h2>
+
+            <div class="caixa">
+
+                <input
+                    type="number"
+                    id="idadeAnimal"
+                    placeholder="Digite a idade do animal"
+                >
+
+                <select id="especie">
+                    <option value="cao">🐶 Cachorro</option>
+                    <option value="gato">🐱 Gato</option>
+                </select>
+
+                <button onclick="calcularIdade()">
+                    Calcular
+                </button>
+
+                <p id="resultadoIdade"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUIZ -->
+
+        <section id="quiz">
+
+            <h2>🧠 Quiz Veterinário</h2>
+
+            <div class="quiz">
+
+                <h3>
+                    Qual desses cuidados é importante
+                    para manter um animal saudável?
+                </h3>
+
+                <br>
+
+                <button onclick="responderQuiz(false)">
+                    ❌ Nunca levar ao veterinário
+                </button>
+
+                <button onclick="responderQuiz(true)">
+                    ✅ Manter a vacinação em dia
+                </button>
+
+                <button onclick="responderQuiz(false)">
+                    ❌ Não oferecer água
+                </button>
+
+                <p id="resultadoQuiz"></p>
 
             </div>
 
@@ -517,27 +781,83 @@
 
         <section id="curiosidades">
 
-            <h2>💡 Curiosidades</h2>
+            <h2>💡 Curiosidade</h2>
 
             <div class="curiosidade">
 
                 <h3>🐾 Você sabia?</h3>
 
-                <p>
-                    O médico veterinário pode trabalhar em
-                    clínicas, hospitais, laboratórios,
-                    fazendas, zoológicos, pesquisas e
-                    diversas outras áreas.
+                <p id="curiosidadeTexto">
+                    Clique no botão para descobrir
+                    uma curiosidade sobre animais!
                 </p>
 
-                <a href="#areas" class="botao">
-                    Ver áreas
-                </a>
+                <button onclick="novaCuriosidade()">
+                    💡 Nova curiosidade
+                </button>
 
             </div>
 
         </section>
+         <!-- LEMBRETES -->
 
+<section id="lembretes">
+
+    <h2>🔔 Lembretes dos cuidados</h2>
+
+    <div class="lembrete-container">
+
+        <h3>Adicionar novo lembrete</h3>
+
+        <form id="formLembrete">
+
+            <input
+                type="text"
+                id="nomeAnimal"
+                placeholder="Nome do animal"
+                required
+            >
+
+            <select id="tipoLembrete" required>
+                <option value="">Escolha o tipo</option>
+                <option value="💉 Vacina">💉 Vacina</option>
+                <option value="🩺 Consulta">🩺 Consulta</option>
+                <option value="💊 Remédio">💊 Remédio</option>
+                <option value="🛁 Banho">🛁 Banho</option>
+                <option value="🐾 Outro cuidado">🐾 Outro cuidado</option>
+            </select>
+
+            <input
+                type="date"
+                id="dataLembrete"
+                required
+            >
+
+            <input
+                type="time"
+                id="horaLembrete"
+                required
+            >
+
+            <button type="submit">
+                🔔 Adicionar lembrete
+            </button>
+
+        </form>
+
+        <h3 class="titulo-lembretes">
+            Meus lembretes
+        </h3>
+
+        <div id="listaLembretes">
+            <p class="sem-lembretes">
+                Você ainda não possui lembretes.
+            </p>
+        </div>
+
+    </div>
+
+</section>
 
         <!-- CONTATO -->
 
@@ -545,38 +865,32 @@
 
             <h2>📞 Entre em contato</h2>
 
-            <form>
+            <form onsubmit="enviarMensagem(event)">
 
                 <input
                     type="text"
                     placeholder="Seu nome"
+                    required
                 >
 
                 <input
                     type="email"
                     placeholder="Seu e-mail"
+                    required
                 >
 
                 <textarea
                     placeholder="Sua mensagem"
+                    required
                 ></textarea>
 
                 <button type="submit">
                     Enviar mensagem
                 </button>
 
+                <p id="mensagemEnviada"></p>
+
             </form>
-
-        </section>
-
-
-        <!-- VOLTAR AO INÍCIO -->
-
-        <section>
-
-            <a href="#inicio" class="botao">
-                ⬆️ Voltar ao início
-            </a>
 
         </section>
 
@@ -585,9 +899,7 @@
 
         <footer>
 
-            <p>
-                🐾 VetCare - Medicina Veterinária
-            </p>
+            <p>🐾 VetCare - Medicina Veterinária</p>
 
             <p>
                 © 2026 - Todos os direitos reservados.
@@ -597,6 +909,329 @@
 
     </main>
 
-</body>
 
-</html>
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* MODO ESCURO */
+
+        function mudarTema() {
+
+            document.body.classList.toggle("escuro");
+
+        }
+
+
+        /* CADASTRO DO PET */
+
+        function cadastrarPet() {
+
+            let nome = document.getElementById("nomePet").value;
+            let tipo = document.getElementById("tipoPet").value;
+            let idade = document.getElementById("idadePet").value;
+
+            let resultado = document.getElementById("petResultado");
+
+            if (nome === "" || tipo === "" || idade === "") {
+
+                resultado.innerHTML =
+                    "⚠️ Preencha todos os campos.";
+
+                return;
+            }
+
+            resultado.innerHTML =
+                "🐾 Pet cadastrado: " +
+                nome +
+                " (" +
+                tipo +
+                "), " +
+                idade +
+                " ano(s).";
+
+        }
+
+
+        /* AGENDAMENTO */
+
+        function agendar(event) {
+
+            event.preventDefault();
+
+            let dono =
+                document.getElementById("nomeDono").value;
+
+            let animal =
+                document.getElementById("nomeAnimal").value;
+
+            let data =
+                document.getElementById("dataConsulta").value;
+
+            let hora =
+                document.getElementById("horaConsulta").value;
+
+            document.getElementById(
+                "resultadoAgendamento"
+            ).innerHTML =
+                "✅ Consulta agendada para " +
+                animal +
+                " no dia " +
+                data +
+                " às " +
+                hora +
+                ". Responsável: " +
+                dono +
+                ".";
+
+        }
+
+
+        /* CALCULADORA DE IDADE */
+
+        function calcularIdade() {
+
+            let idade =
+                Number(document.getElementById(
+                    "idadeAnimal"
+                ).value);
+
+            let especie =
+                document.getElementById(
+                    "especie"
+                ).value;
+
+            let resultado =
+                document.getElementById(
+                    "resultadoIdade"
+                );
+
+            if (idade <= 0 || isNaN(idade)) {
+
+                resultado.innerHTML =
+                    "⚠️ Digite uma idade válida.";
+
+                return;
+            }
+
+            let idadeHumana;
+
+            if (especie === "cao") {
+
+                idadeHumana = idade * 7;
+
+            } else {
+
+                idadeHumana = idade * 6;
+
+            }
+
+            resultado.innerHTML =
+                "🐾 Aproximadamente " +
+                idadeHumana +
+                " anos humanos.";
+
+        }
+
+
+        /* QUIZ */
+
+        function responderQuiz(correta) {
+
+            let resultado =
+                document.getElementById(
+                    "resultadoQuiz"
+                );
+
+            if (correta) {
+
+                resultado.innerHTML =
+                    "🎉 Acertou! A vacinação é muito importante.";
+
+            } else {
+
+                resultado.innerHTML =
+                    "❌ Resposta errada. Tente novamente!";
+
+            }
+
+        }
+
+
+        /* CURIOSIDADES */
+
+        const curiosidades = [
+
+            "🐶 Os cães possuem um olfato muito mais desenvolvido que o dos humanos.",
+
+            "🐱 Os gatos passam boa parte do dia dormindo.",
+
+            "🐴 Cavalos conseguem dormir tanto em pé quanto deitados.",
+
+            "🦜 Algumas aves conseguem aprender e repetir sons.",
+
+            "🐰 Os dentes dos coelhos crescem durante toda a vida.",
+
+            "🐢 Algumas tartarugas podem viver por muitas décadas."
+
+        ];
+
+
+        function novaCuriosidade() {
+
+            let numero =
+                Math.floor(
+                    Math.random() *
+                    curiosidades.length
+                );
+
+            document.getElementById(
+                "curiosidadeTexto"
+            ).innerHTML =
+                curiosidades[numero];
+
+        }
+
+
+        /* FORMULÁRIO DE CONTATO */
+
+        function enviarMensagem(event) {
+
+            event.preventDefault();
+
+            document.getElementById(
+                "mensagemEnviada"
+            ).innerHTML =
+                "✅ Mensagem enviada com sucesso!";
+
+        }
+        </script>
+        <script>
+
+    const form = document.getElementById("formLembrete");
+    const lista = document.getElementById("listaLembretes");
+
+    let lembretes = JSON.parse(
+        localStorage.getItem("lembretes")
+    ) || [];
+
+
+    function mostrarLembretes() {
+
+        lista.innerHTML = "";
+
+        if (lembretes.length === 0) {
+
+            lista.innerHTML = `
+                <p class="sem-lembretes">
+                    Você ainda não possui lembretes.
+                </p>
+            `;
+
+            return;
+        }
+
+
+        lembretes.forEach((lembrete, index) => {
+
+            lista.innerHTML += `
+
+                <div class="lembrete">
+
+                    <h4>
+                        ${lembrete.tipo}
+                    </h4>
+
+                    <p>
+                        🐾 Animal: ${lembrete.animal}
+                    </p>
+
+                    <p>
+                        📅 Data: ${lembrete.data}
+                    </p>
+
+                    <p>
+                        ⏰ Horário: ${lembrete.hora}
+                    </p>
+
+                    <button
+                        class="btn-excluir"
+                        onclick="excluirLembrete(${index})"
+                    >
+                        🗑️ Excluir
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const animal =
+            document.getElementById("nomeAnimal").value;
+
+        const tipo =
+            document.getElementById("tipoLembrete").value;
+
+        const data =
+            document.getElementById("dataLembrete").value;
+
+        const hora =
+            document.getElementById("horaLembrete").value;
+
+
+        const novoLembrete = {
+
+            animal: animal,
+            tipo: tipo,
+            data: data,
+            hora: hora
+
+        };
+
+
+        lembretes.push(novoLembrete);
+
+
+        localStorage.setItem(
+            "lembretes",
+            JSON.stringify(lembretes)
+        );
+
+
+        form.reset();
+
+        mostrarLembretes();
+
+        alert("🔔 Lembrete adicionado com sucesso!");
+
+    });
+
+
+    function excluirLembrete(index) {
+
+        lembretes.splice(index, 1);
+
+        localStorage.setItem(
+            "lembretes",
+            JSON.stringify(lembretes)
+        );
+
+        mostrarLembretes();
+
+    }
+
+
+    mostrarLembretes();
+
+</script>
+</body>

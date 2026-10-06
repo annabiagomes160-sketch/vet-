@@ -1,0 +1,448 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7fb;
+    color: #29243d;
+    display: flex;
+}
+
+
+/* MENU LATERAL */
+
+aside {
+    width: 230px;
+    height: 100vh;
+    background: white;
+    padding: 30px 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #e8e2f5;
+}
+
+aside h1 {
+    color: #7047eb;
+    margin-bottom: 40px;
+    font-size: 25px;
+}
+
+
+/* LINKS DO MENU */
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    padding: 13px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #eee8ff;
+    color: #7047eb;
+}
+
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+    margin-left: 230px;
+    width: calc(100% - 230px);
+    padding: 25px 40px;
+}
+
+
+/* CABEÇALHO */
+
+header {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 3px 15px #ddd;
+}
+
+header h2 {
+    color: #7047eb;
+}
+
+header p {
+    color: #777;
+    margin-top: 5px;
+}
+
+
+/* BOTÕES */
+
+.botao {
+    display: inline-block;
+
+    background: #7047eb;
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    margin-top: 15px;
+
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: #5933c9;
+    transform: translateY(-2px);
+}
+
+
+/* BOTÃO DO FORMULÁRIO */
+
+button {
+    border: none;
+
+    background: #7047eb;
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5933c9;
+}
+
+
+/* BANNER PRINCIPAL */
+
+.banner {
+    background: linear-gradient(
+        120deg,
+        #4db8c9,
+        #7047eb
+    );
+
+    color: white;
+
+    border-radius: 20px;
+
+    padding: 45px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    min-height: 280px;
+
+    margin-bottom: 35px;
+}
+
+.banner h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.banner .botao {
+    background: white;
+    color: #7047eb;
+}
+
+.banner .botao:hover {
+    background: #f0ebff;
+}
+
+.emoji {
+    font-size: 130px;
+}
+
+
+/* SEÇÕES */
+
+section {
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
+
+section > h2 {
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 3px 15px #e2dff0;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px #d8d1ed;
+}
+
+.card span {
+    font-size: 35px;
+}
+
+.card h3 {
+    margin: 15px 0 10px;
+
+    color: #7047eb;
+}
+
+.card p {
+    color: #666;
+
+    line-height: 1.5;
+}
+
+
+/* LISTA DE CUIDADOS */
+
+.lista {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 3px 15px #e2dff0;
+}
+
+.lista p {
+    padding: 13px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.lista p:last-child {
+    border-bottom: none;
+}
+
+
+/* CURIOSIDADE */
+
+.curiosidade {
+    background: #eee8ff;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    border-left: 5px solid #7047eb;
+}
+
+.curiosidade h3 {
+    color: #7047eb;
+
+    margin-bottom: 10px;
+}
+
+.curiosidade p {
+    line-height: 1.6;
+
+    color: #555;
+}
+
+
+/* FORMULÁRIO */
+
+form {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 3px 15px #e2dff0;
+
+    max-width: 600px;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-family: Arial;
+
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #7047eb;
+
+    box-shadow: 0 0 5px #ddd0ff;
+}
+
+textarea {
+    height: 120px;
+
+    resize: none;
+}
+
+
+/* RODAPÉ */
+
+footer {
+    background: white;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    color: #777;
+
+    box-shadow: 0 3px 15px #e2dff0;
+}
+
+footer p:first-child {
+    color: #7047eb;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+
+/* RESPONSIVIDADE PARA CELULAR */
+
+@media (max-width: 800px) {
+
+    body {
+        display: block;
+    }
+
+    aside {
+        width: 100%;
+
+        height: auto;
+
+        position: relative;
+
+        border-right: none;
+
+        border-bottom: 1px solid #e8e2f5;
+    }
+
+    aside h1 {
+        text-align: center;
+
+        margin-bottom: 20px;
+    }
+
+    nav {
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    main {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .banner {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 20px;
+
+        padding: 30px;
+    }
+
+    .banner h2 {
+        font-size: 28px;
+    }
+
+    .emoji {
+        font-size: 90px;
+    }
+
+    header {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 15px;
+    }
+}

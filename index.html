@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medicina Veterinária</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7fb;
+            color: #29243d;
+            display: flex;
+        }
+
+        /* MENU */
+
+        aside {
+            width: 230px;
+            height: 100vh;
+            background: white;
+            padding: 30px 20px;
+            position: fixed;
+            border-right: 1px solid #e8e2f5;
+        }
+
+        aside h1 {
+            color: #7047eb;
+            margin-bottom: 40px;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            padding: 13px;
+            border-radius: 10px;
+        }
+
+        nav a:hover {
+            background: #eee8ff;
+            color: #7047eb;
+        }
+
+        /* CONTEÚDO */
+
+        main {
+            margin-left: 230px;
+            width: calc(100% - 230px);
+            padding: 25px 40px;
+        }
+
+        /* CABEÇALHO */
+
+        header {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 15px #ddd;
+        }
+
+        header h2 {
+            color: #7047eb;
+        }
+
+        header p {
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* BOTÕES */
+
+        .botao {
+            display: inline-block;
+            background: #7047eb;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .botao:hover {
+            background: #5933c9;
+        }
+
+        /* BANNER */
+
+        .banner {
+            background: linear-gradient(120deg, #4db8c9, #7047eb);
+            color: white;
+            border-radius: 20px;
+            padding: 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 280px;
+            margin-bottom: 35px;
+        }
+
+        .banner h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .emoji {
+            font-size: 130px;
+        }
+
+        /* SEÇÕES */
+
+        section {
+            margin-bottom: 50px;
+            padding-top: 20px;
+        }
+
+        section > h2 {
+            margin-bottom: 20px;
+            font-size: 25px;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px #e2dff0;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card span {
+            font-size: 35px;
+        }
+
+        .card h3 {
+            margin: 15px 0 10px;
+            color: #7047eb;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* LISTA */
+
+        .lista {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px #e2dff0;
+        }
+
+        .lista p {
+            padding: 13px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* CURIOSIDADE */
+
+        .curiosidade {
+            background: #eee8ff;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .curiosidade h3 {
+            color: #7047eb;
+            margin-bottom: 10px;
+        }
+
+        .curiosidade p {
+            line-height: 1.6;
+        }
+
+        /* CONTATO */
+
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px #e2dff0;
+            max-width: 600px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: Arial;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 15px;
+            color: #777;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 800px) {
+
+            aside {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            body {
+                display: block;
+            }
+
+            main {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .banner h2 {
+                font-size: 28px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+
+    <aside>
+
+        <h1>🐾 VetCare</h1>
+
+        <nav>
+            <a href="#inicio">🏠 Início</a>
+            <a href="#sobre">📚 Sobre</a>
+            <a href="#areas">🩺 Áreas</a>
+            <a href="#cuidados">❤️ Cuidados</a>
+            <a href="#curiosidades">💡 Curiosidades</a>
+            <a href="#contato">📞 Contato</a>
+        </nav>
+
+    </aside>
+
+
+    <!-- CONTEÚDO -->
+
+    <main>
+
+        <!-- TOPO -->
+
+        <header>
+
+            <div>
+                <h2>Medicina Veterinária 🐶</h2>
+                <p>Cuidados, saúde e bem-estar dos animais.</p>
+            </div>
+
+            <a href="#contato" class="botao">
+                🐾 Saiba mais
+            </a>
+
+        </header>
+
+
+        <!-- INÍCIO -->
+
+        <section class="banner" id="inicio">
+
+            <div>
+
+                <h2>
+                    Cuidando de quem
+                    <br>
+                    não pode falar 💜
+                </h2>
+
+                <p>
+                    A Medicina Veterinária cuida da saúde,
+                    prevenção e qualidade de vida dos animais.
+                </p>
+
+                <a href="#sobre" class="botao">
+                    Conheça mais
+                </a>
+
+            </div>
+
+            <div class="emoji">
+                🐶
+            </div>
+
+        </section>
+
+
+        <!-- SOBRE -->
+
+        <section id="sobre">
+
+            <h2>📚 Sobre a Medicina Veterinária</h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <span>🩺</span>
+
+                    <h3>Saúde</h3>
+
+                    <p>
+                        Cuidados para prevenir e tratar
+                        doenças nos animais.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span>💉</span>
+
+                    <h3>Prevenção</h3>
+
+                    <p>
+                        Vacinação e acompanhamento
+                        ajudam a manter os animais saudáveis.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span>❤️</span>
+
+                    <h3>Bem-estar</h3>
+
+                    <p>
+                        Promove uma vida saudável,
+                        segura e feliz para os animais.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ÁREAS -->
+
+        <section id="areas">
+
+            <h2>🩺 Áreas da Veterinária</h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <span>🐶</span>
+
+                    <h3>Pequenos animais</h3>
+
+                    <p>
+                        Cuidados com cães, gatos e
+                        outros animais domésticos.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span>🐴</span>
+
+                    <h3>Grandes animais</h3>
+
+                    <p>
+                        Cuidados com cavalos,
+                        bovinos e outros animais.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span>🦜</span>
+
+                    <h3>Animais silvestres</h3>
+
+                    <p>
+                        Atendimento e cuidados
+                        com diferentes espécies.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span>🔬</span>
+
+                    <h3>Laboratório</h3>
+
+                    <p>
+                        Exames, pesquisas e
+                        diagnósticos.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CUIDADOS -->
+
+        <section id="cuidados">
+
+            <h2>❤️ Cuidados importantes</h2>
+
+            <div class="lista">
+
+                <p>🍎 Alimentação adequada</p>
+
+                <p>💉 Vacinação em dia</p>
+
+                <p>🏃 Exercícios físicos</p>
+
+                <p>🩺 Consultas veterinárias</p>
+
+                <p>🧼 Higiene e limpeza</p>
+
+                <p>💧 Água limpa e fresca</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CURIOSIDADES -->
+
+        <section id="curiosidades">
+
+            <h2>💡 Curiosidades</h2>
+
+            <div class="curiosidade">
+
+                <h3>🐾 Você sabia?</h3>
+
+                <p>
+                    O médico veterinário pode trabalhar em
+                    clínicas, hospitais, laboratórios,
+                    fazendas, zoológicos, pesquisas e
+                    diversas outras áreas.
+                </p>
+
+                <a href="#areas" class="botao">
+                    Ver áreas
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTATO -->
+
+        <section id="contato">
+
+            <h2>📞 Entre em contato</h2>
+
+            <form>
+
+                <input
+                    type="text"
+                    placeholder="Seu nome"
+                >
+
+                <input
+                    type="email"
+                    placeholder="Seu e-mail"
+                >
+
+                <textarea
+                    placeholder="Sua mensagem"
+                ></textarea>
+
+                <button type="submit">
+                    Enviar mensagem
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- VOLTAR AO INÍCIO -->
+
+        <section>
+
+            <a href="#inicio" class="botao">
+                ⬆️ Voltar ao início
+            </a>
+
+        </section>
+
+
+        <!-- RODAPÉ -->
+
+        <footer>
+
+            <p>
+                🐾 VetCare - Medicina Veterinária
+            </p>
+
+            <p>
+                © 2026 - Todos os direitos reservados.
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
